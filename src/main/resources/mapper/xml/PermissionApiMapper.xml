@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.PermissionApiMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.PermissionApi">
+                    <id column="id" property="id" />
+                    <result column="ps_id" property="psId" />
+                    <result column="ps_api_service" property="psApiService" />
+                    <result column="ps_api_action" property="psApiAction" />
+                    <result column="ps_api_path" property="psApiPath" />
+                    <result column="ps_api_order" property="psApiOrder" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, ps_id, ps_api_service, ps_api_action, ps_api_path, ps_api_order
+        </sql>
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.ConsigneeMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Consignee">
+                    <id column="cgn_id" property="cgnId" />
+                    <result column="user_id" property="userId" />
+                    <result column="cgn_name" property="cgnName" />
+                    <result column="cgn_address" property="cgnAddress" />
+                    <result column="cgn_tel" property="cgnTel" />
+                    <result column="cgn_code" property="cgnCode" />
+                    <result column="delete_time" property="deleteTime" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            cgn_id, user_id, cgn_name, cgn_address, cgn_tel, cgn_code, delete_time
+        </sql>
+
+</mapper>

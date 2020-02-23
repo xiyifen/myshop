@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.CategoryMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Category">
+                    <id column="cat_id" property="catId" />
+                    <result column="cat_name" property="catName" />
+                    <result column="cat_pid" property="catPid" />
+                    <result column="cat_level" property="catLevel" />
+                    <result column="cat_deleted" property="catDeleted" />
+                    <result column="cat_icon" property="catIcon" />
+                    <result column="cat_src" property="catSrc" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            cat_id, cat_name, cat_pid, cat_level, cat_deleted, cat_icon, cat_src
+        </sql>
+
+</mapper>

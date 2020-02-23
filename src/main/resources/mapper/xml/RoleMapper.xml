@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.RoleMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Role">
+                    <id column="role_id" property="roleId" />
+                    <result column="role_name" property="roleName" />
+                    <result column="ps_ids" property="psIds" />
+                    <result column="ps_ca" property="psCa" />
+                    <result column="role_desc" property="roleDesc" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            role_id, role_name, ps_ids, ps_ca, role_desc
+        </sql>
+
+        <select id="getRolesByUsername" resultMap="BaseResultMap">
+            SELECT r.* FROM sp_manager m  INNER JOIN sp_role r on m.role_id=r.role_id WHERE m.mg_name=#{username}
+        </select>
+</mapper>

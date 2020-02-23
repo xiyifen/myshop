@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.GoodsPicsMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.GoodsPics">
+                    <id column="pics_id" property="picsId" />
+                    <result column="goods_id" property="goodsId" />
+                    <result column="pics_big" property="picsBig" />
+                    <result column="pics_mid" property="picsMid" />
+                    <result column="pics_sma" property="picsSma" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            pics_id, goods_id, pics_big, pics_mid, pics_sma
+        </sql>
+
+</mapper>

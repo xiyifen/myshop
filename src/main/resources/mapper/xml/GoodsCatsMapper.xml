@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.GoodsCatsMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.GoodsCats">
+                    <id column="cat_id" property="catId" />
+                    <result column="parent_id" property="parentId" />
+                    <result column="cat_name" property="catName" />
+                    <result column="is_show" property="isShow" />
+                    <result column="cat_sort" property="catSort" />
+                    <result column="data_flag" property="dataFlag" />
+                    <result column="create_time" property="createTime" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            cat_id, parent_id, cat_name, is_show, cat_sort, data_flag, create_time
+        </sql>
+
+</mapper>

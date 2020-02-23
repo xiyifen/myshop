@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.Report1Mapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Report1">
+                    <id column="id" property="id" />
+                    <result column="rp1_user_count" property="rp1UserCount" />
+                    <result column="rp1_area" property="rp1Area" />
+                    <result column="rp1_date" property="rp1Date" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, rp1_user_count, rp1_area, rp1_date
+        </sql>
+
+</mapper>

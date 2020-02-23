@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiyifen.myshop.system.mapper.GoodsMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Goods">
+                    <id column="goods_id" property="goodsId" />
+                    <result column="goods_name" property="goodsName" />
+                    <result column="goods_price" property="goodsPrice" />
+                    <result column="goods_number" property="goodsNumber" />
+                    <result column="goods_weight" property="goodsWeight" />
+                    <result column="cat_id" property="catId" />
+                    <result column="goods_introduce" property="goodsIntroduce" />
+                    <result column="goods_big_logo" property="goodsBigLogo" />
+                    <result column="goods_small_logo" property="goodsSmallLogo" />
+                    <result column="is_del" property="isDel" />
+                    <result column="add_time" property="addTime" />
+                    <result column="upd_time" property="updTime" />
+                    <result column="delete_time" property="deleteTime" />
+                    <result column="cat_one_id" property="catOneId" />
+                    <result column="cat_two_id" property="catTwoId" />
+                    <result column="cat_three_id" property="catThreeId" />
+                    <result column="hot_mumber" property="hotMumber" />
+                    <result column="is_promote" property="isPromote" />
+                    <result column="goods_state" property="goodsState" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            goods_id, goods_name, goods_price, goods_number, goods_weight, cat_id, goods_introduce, goods_big_logo, goods_small_logo, is_del, add_time, upd_time, delete_time, cat_one_id, cat_two_id, cat_three_id, hot_mumber, is_promote, goods_state
+        </sql>
+
+</mapper>
