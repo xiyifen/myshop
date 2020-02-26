@@ -1,9 +1,8 @@
 package com.xiyifen.myshop.system.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.xiyifen.myshop.common.result.ResponseResult;
-import com.xiyifen.myshop.domain.QueryRequest;
+import com.xiyifen.myshop.common.domain.QueryRequest;
 import com.xiyifen.myshop.system.entity.Manager;
 import com.xiyifen.myshop.system.entity.Role;
 import com.xiyifen.myshop.system.service.ManagerService;
@@ -13,9 +12,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -39,8 +35,8 @@ public class ManagerController {
 
     @PostMapping()
     @RequiresPermissions("user:add")
-    public ResponseResult addUser(@Valid Manager manager){
-        manager.setMgTime(System.currentTimeMillis()/1000);
+    public ResponseResult addUser(@RequestBody @Valid Manager manager){
+        manager.setCreateTime(System.currentTimeMillis()/1000);
         managerService.save(manager);
         return new ResponseResult().success("用户创建成功",manager);
     }
@@ -48,7 +44,7 @@ public class ManagerController {
     @PutMapping("/{uid}/state/{type}")
     public ResponseResult updateUserState(@PathVariable(value = "uid",required = true) Integer uid,@PathVariable(value = "type",required = true) Boolean type){
         Manager manager = managerService.getById(uid);
-        manager.setMgState(type?1:0);
+        manager.setState(type?1:0);
         managerService.saveOrUpdate(manager);
 
         return new ResponseResult().success("用户状态修改成功",manager);
@@ -57,12 +53,13 @@ public class ManagerController {
     @GetMapping("/{id}")
     public ResponseResult getManageInfo(@PathVariable(value = "id",required =true ) Integer id){
         Manager manager = managerService.getById(id);
-        manager.setMgPwd(null);
+        manager.setPassword(null);
         return new ResponseResult().success("查询成功",manager);
     }
 
     @PutMapping("/{id}")
-    public ResponseResult updateManager(@PathVariable(value = "id") Integer id,Manager manager){
+    public ResponseResult updateManager(@PathVariable(value = "id") Integer id,@RequestBody Manager manager){
+        manager.setId(id);
         managerService.updateById(manager);
          manager = managerService.getById(id);
         return new ResponseResult().success("更新成功",manager);
@@ -72,10 +69,10 @@ public class ManagerController {
     public ResponseResult setManagerRole(@PathVariable(value = "mid") Integer mid,@RequestBody Role role){
         System.out.println(mid+"  "+ role.getRoleId());
         Manager manager=new Manager();
-        manager.setMgId(mid);
+        manager.setId(mid);
         manager.setRoleId(role.getRoleId());
         managerService.updateById(manager);
-         manager = managerService.getById(manager.getMgId());
+         manager = managerService.getById(manager.getId());
         return new ResponseResult().success("设置角色成功",manager);
     }
 

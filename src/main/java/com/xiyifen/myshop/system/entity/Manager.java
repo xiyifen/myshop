@@ -1,9 +1,9 @@
 package com.xiyifen.myshop.system.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * 管理员表
@@ -28,33 +28,36 @@ public class Manager implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键id")
-            @TableId(value = "mg_id", type = IdType.AUTO)
-    private Integer mgId;
+            @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     @ApiModelProperty(value = "名称")
-    @NotBlank(message = "name不能为空")
-    private String mgName;
+    private String username;
 
     @ApiModelProperty(value = "密码")
-    @NotBlank(message = "密码不能为空")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String mgPwd;
+    private String password;
 
     @ApiModelProperty(value = "注册时间")
-    private Long mgTime;
+    private Long createTime;
 
     @ApiModelProperty(value = "角色id")
     private Integer roleId;
 
-    private String mgMobile;
+    private String mobile;
 
-    private String mgEmail;
+    private String email;
 
     @ApiModelProperty(value = "1：表示启用 0:表示禁用")
-    private Integer mgState;
+    private Integer state;
+
+
+    @TableField(exist = false)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String roleName;
 
     @TableField(exist = false)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String token;
+
 
 }

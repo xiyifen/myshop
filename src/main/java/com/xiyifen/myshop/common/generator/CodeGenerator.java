@@ -105,7 +105,7 @@ public class CodeGenerator {
 //        LikeTable likeTable=new LikeTable("sp_"); // 模糊匹配要生成代码的表
 //        strategy.setLikeTable(likeTable);
         strategy.setNaming(NamingStrategy.underline_to_camel); // 数据映射到实体类的策略
-        strategy.setTablePrefix("system"); // 不生成表的前缀
+        strategy.setTablePrefix("sp_"); // 不生成表的前缀
 
         strategy.setEntityLombokModel(true); // 自动添加lombok的注释
 

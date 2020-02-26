@@ -7,12 +7,14 @@ import com.xiyifen.myshop.common.jwt.JWTUtil;
 import com.xiyifen.myshop.common.result.ResponseResult;
 import com.xiyifen.myshop.common.utils.MD5Util;
 import com.xiyifen.myshop.system.entity.Manager;
+import com.xiyifen.myshop.system.entity.bo.UserBo;
 import com.xiyifen.myshop.system.service.ManagerService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.LockedAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,20 +25,18 @@ public class LoginController {
     private ManagerService managerService;
 
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login")
     @ResponseBody
     @ApiOperation(value = "登录接口")
-    public ResponseResult login(String username, String password) throws MyException {
-        username = StringUtils.lowerCase(username);
-        password= MD5Util.encrypt(username,password);
-        Manager user = managerService.getOne(new LambdaQueryWrapper<Manager>().eq(Manager::getMgName, username));
+    public ResponseResult login(@RequestBody UserBo userBo) throws MyException {
+        String username = StringUtils.lowerCase(userBo.getUsername());
+        String password= MD5Util.encrypt(username,userBo.getPassword());
+        Manager user = managerService.getOne(new LambdaQueryWrapper<Manager>().eq(Manager::getUsername, username));
         if (user==null)
             throw new MyException("用户名或密码错误");
-        System.out.println(password);
-        System.out.println(user.getMgPwd());
-        if (!StringUtils.equals(password,user.getMgPwd()))
+        if (!StringUtils.equals(password,user.getPassword()))
             throw new MyException(("用户名或密码错误"));
-        if (0==user.getMgState())
+        if (0==user.getState())
             throw new LockedAccountException("用户已被锁定，请联系管理员！");
 
         // 生成token
@@ -44,4 +44,6 @@ public class LoginController {
         user.setToken(token);
         return new ResponseResult().success("登录成功",user);
     }
+
+
 }

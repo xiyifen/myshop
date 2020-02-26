@@ -4,18 +4,21 @@
 
         <!-- 通用查询映射结果 -->
         <resultMap id="BaseResultMap" type="com.xiyifen.myshop.system.entity.Permission">
-                    <id column="ps_id" property="psId" />
-                    <result column="ps_name" property="psName" />
-                    <result column="ps_pid" property="psPid" />
+                    <id column="id" property="id" />
+                    <result column="auth_name" property="authName" />
+                    <result column="pid" property="pid" />
                     <result column="ps_c" property="psC" />
                     <result column="ps_a" property="psA" />
-                    <result column="ps_level" property="psLevel" />
+                    <result column="ps_level" property="level" />
                     <result column="perms" property="perms" />
+                    <result column="path" property="path" />
+                    <result column="order_num" property="orderNum" />
+                    <result column="type" property="type"/>
         </resultMap>
 
         <!-- 通用查询结果列 -->
         <sql id="Base_Column_List">
-            ps_id, ps_name, ps_pid, ps_c, ps_a, ps_level, perms
+            id, auth_name, pid, ps_c, ps_a, ps_level, perms, path, order_num,`type`
         </sql>
 
 </mapper>

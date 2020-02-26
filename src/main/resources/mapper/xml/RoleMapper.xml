@@ -17,6 +17,6 @@
         </sql>
 
         <select id="getRolesByUsername" resultMap="BaseResultMap">
-            SELECT r.* FROM sp_manager m  INNER JOIN sp_role r on m.role_id=r.role_id WHERE m.mg_name=#{username}
+            SELECT r.* FROM sp_manager m  INNER JOIN sp_role r on m.role_id=r.role_id WHERE m.username=#{username}
         </select>
 </mapper>

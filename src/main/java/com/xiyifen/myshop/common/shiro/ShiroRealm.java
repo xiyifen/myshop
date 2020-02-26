@@ -97,11 +97,11 @@ public class ShiroRealm extends AuthorizingRealm {
            throw new AuthenticationException("token校验不通过1");
        }
        // 通过用户名查询用户信息
-       Manager user = managerService.getOne(new LambdaQueryWrapper<Manager>().eq(Manager::getMgName,username));
+       Manager user = managerService.getOne(new LambdaQueryWrapper<Manager>().eq(Manager::getUsername,username));
        if (user == null) {
            throw new AuthenticationException("用户名或密码错误");
        }
-       if (!JWTUtil.verify(token, username, user.getMgPwd())) {
+       if (!JWTUtil.verify(token, username, user.getPassword())) {
            throw new AuthenticationException("token校验不通过2");
        }
 

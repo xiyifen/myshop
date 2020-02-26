@@ -1,6 +1,6 @@
 package com.xiyifen.myshop.system.service;
 
-import com.xiyifen.myshop.domain.QueryRequest;
+import com.xiyifen.myshop.common.domain.QueryRequest;
 import com.xiyifen.myshop.system.entity.Manager;
 import com.baomidou.mybatisplus.extension.service.IService;
 

@@ -1,8 +1,7 @@
-package com.xiyifen.myshop.domain;
+package com.xiyifen.myshop.common.domain;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data

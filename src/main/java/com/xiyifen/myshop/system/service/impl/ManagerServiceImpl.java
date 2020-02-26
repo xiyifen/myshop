@@ -1,10 +1,9 @@
 package com.xiyifen.myshop.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xiyifen.myshop.domain.QueryRequest;
+import com.xiyifen.myshop.common.domain.QueryRequest;
 import com.xiyifen.myshop.system.entity.Manager;
 import com.xiyifen.myshop.system.entity.Permission;
 import com.xiyifen.myshop.system.mapper.ManagerMapper;
@@ -49,14 +48,15 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
     public Map<String,Object> findManagers(String query, QueryRequest request) {
         Map<String,Object> resultMap=new HashMap<>();
         Page<Manager> page=new Page<>(request.getPagenum(),request.getPagesize());
-        QueryWrapper<Manager> queryWrapper=new QueryWrapper<>();
-        if (StringUtils.isNotBlank(query)){
-//            wrapper = new LambdaQueryWrapper<Manager>().like(Manager::getMgName, query);
-            queryWrapper.lambda().like(Manager::getMgName,query);
-        }
-        Page<Manager> pageinfo = managerMapper.selectPage(page, queryWrapper);
+//        QueryWrapper<Manager> queryWrapper=new QueryWrapper<>();
+//        if (StringUtils.isNotBlank(query)){
+////            wrapper = new LambdaQueryWrapper<Manager>().like(Manager::getMgName, query);
+//            queryWrapper.lambda().like(Manager::getUsername,query);
+//        }
+//        Page<Manager> pageinfo = managerMapper.selectPage(page, queryWrapper);
+        IPage<Manager> pageinfo = managerMapper.getMappersInfo(page, query);
         List<Manager> managerList = pageinfo.getRecords();
-        resultMap.put("totalpage",pageinfo.getPages());
+        resultMap.put("total",pageinfo.getTotal());
         resultMap.put("pagenum",pageinfo.getCurrent());
         resultMap.put("users",managerList);
         return resultMap;
