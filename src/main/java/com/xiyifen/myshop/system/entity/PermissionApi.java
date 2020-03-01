@@ -16,7 +16,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_permission_api")
 @ApiModel(value="PermissionApi对象", description="")
 public class PermissionApi implements Serializable {

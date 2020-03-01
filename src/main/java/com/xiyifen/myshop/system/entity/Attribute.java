@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_attribute")
 @ApiModel(value="Attribute对象", description="属性表")
 public class Attribute implements Serializable {

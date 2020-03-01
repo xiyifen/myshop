@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_report_1")
 @ApiModel(value="Report1对象", description="")
 public class Report1 implements Serializable {

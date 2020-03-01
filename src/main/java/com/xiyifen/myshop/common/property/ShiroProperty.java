@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "xiyifen.shiro")
-@PropertySource(value = "application.properties")
+@PropertySource(value = "classpath:application.properties")
 public class ShiroProperty {
     private String anonUrl;
     private Integer jwtTimeOut;

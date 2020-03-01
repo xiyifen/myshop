@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_goods_pics")
 @ApiModel(value="GoodsPics对象", description="商品-相册关联表")
 public class GoodsPics implements Serializable {

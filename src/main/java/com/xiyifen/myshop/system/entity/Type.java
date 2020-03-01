@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_type")
 @ApiModel(value="Type对象", description="类型表")
 public class Type implements Serializable {

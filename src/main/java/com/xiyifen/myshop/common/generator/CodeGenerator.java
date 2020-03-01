@@ -106,7 +106,7 @@ public class CodeGenerator {
 //        strategy.setLikeTable(likeTable);
         strategy.setNaming(NamingStrategy.underline_to_camel); // 数据映射到实体类的策略
         strategy.setTablePrefix("sp_"); // 不生成表的前缀
-
+//        strategy.setFieldPrefix("cat_");  // 不生成表字段的前缀
         strategy.setEntityLombokModel(true); // 自动添加lombok的注释
 
         // 逻辑删除

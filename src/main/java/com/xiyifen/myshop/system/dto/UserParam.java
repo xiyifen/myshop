@@ -1,9 +1,9 @@
-package com.xiyifen.myshop.system.entity.bo;
+package com.xiyifen.myshop.system.dto;
 
 import lombok.Data;
 
 @Data
-public class UserBo {
+public class UserParam {
 
     private String username;
     private String password;

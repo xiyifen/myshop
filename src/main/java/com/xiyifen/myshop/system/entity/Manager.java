@@ -20,7 +20,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_manager")
 @ApiModel(value="Manager对象", description="管理员表")
 public class Manager implements Serializable {

@@ -128,8 +128,10 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         httpResponse.setCharacterEncoding("utf-8");
         httpResponse.setContentType("application/json; charset=utf-8");
         final String message = "未认证，请在前端系统进行认证";
+        final Integer status=402;
         try (PrintWriter out = httpResponse.getWriter()) {
-            String responseJson = "{\"message\":\"" + message + "\"}";
+//            String responseJson = "{\"message\":\"" + message + "\"}";
+            String responseJson = "{\"status\":\"" + status + "\",\"message\":\"" + message + "\"}";
             out.print(responseJson);
         } catch (IOException e) {
             log.error("sendChallenge error：", e);
@@ -137,3 +139,4 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         return false;
     }
 }
+//  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODMwNjAxMTIsInVzZXJuYW1lIjoieGl5aWZlbiJ9.M20BgEzY2FrABbXm7Kf_-MqiIy078bV-PcRBz74kYXc

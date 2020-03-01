@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_consignee")
 @ApiModel(value="Consignee对象", description="收货人表")
 public class Consignee implements Serializable {

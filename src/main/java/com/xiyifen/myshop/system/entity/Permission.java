@@ -22,7 +22,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_permission")
 @ApiModel(value="Permission对象", description="权限表")
 public class Permission implements Serializable {

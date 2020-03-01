@@ -8,7 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "xiyifen.swagger")
-@PropertySource(value = "application.properties")
+//此处之所以要加classpath,是因为如果不加的话,在junit 测试中会找不到application.properties
+@PropertySource(value = "classpath:application.properties")
 public class SwaggerProperty {
 
     private String basePackage;

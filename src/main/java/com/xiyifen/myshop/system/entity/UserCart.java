@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+// @Accessors(chain = true)
 @TableName("sp_user_cart")
 @ApiModel(value="UserCart对象", description="")
 public class UserCart implements Serializable {
