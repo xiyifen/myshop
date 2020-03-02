@@ -54,6 +54,7 @@ public class ManagerServiceImpl extends ServiceImpl<ManagerMapper, Manager> impl
 //            queryWrapper.lambda().like(Manager::getUsername,query);
 //        }
 //        Page<Manager> pageinfo = managerMapper.selectPage(page, queryWrapper);
+
         IPage<Manager> pageinfo = managerMapper.getMappersInfo(page, query);
         List<Manager> managerList = pageinfo.getRecords();
         resultMap.put("total",pageinfo.getTotal());
